@@ -1,0 +1,13 @@
+<div class="favorites">
+  <h4>Favoritos ❤️</h4>
+
+  <ul *ngIf="favoriteRecipes.length > 0" class="list-group">
+    <li *ngFor="let recipe of favoriteRecipes" class="list-group-item d-flex justify-content-between align-items-center">
+      <button class="btn btn-light flex-grow-1 text-start" (click)="viewFavoriteRecipe(recipe.id)">
+        <img [src]="recipe.image_url" alt="Recipe Image" class="rounded" width="50"> 
+        {{ recipe.title }}
+      </button>
+      <button class="btn btn-danger btn-sm" (click)="removeFavorite(recipe.id)">❌</button>
+    </li>
+  </ul>
+</div>

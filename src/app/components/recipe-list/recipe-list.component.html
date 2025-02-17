@@ -1,0 +1,11 @@
+<div class="container">
+  <ul>
+    <li *ngFor="let recipe of recipes" (click)="selectRecipe.emit(recipe.id)" class="recipe-item">
+      <img [src]="recipe.image_url" alt="Recipe Image" class="recipe-img">
+      <div class="recipe-info">
+        <h4 class="recipe-title">{{ recipe.title }}</h4>
+        <p class="recipe-source">{{ recipe.source_name }}</p>
+      </div>
+    </li>
+  </ul>
+</div>

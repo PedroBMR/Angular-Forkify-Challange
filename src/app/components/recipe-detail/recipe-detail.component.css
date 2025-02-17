@@ -1,0 +1,27 @@
+/* 🔹 Estilizando o container de informações da receita */
+.recipe-info {
+    display: flex;
+    justify-content: space-between; /* 🔥 Mantém os elementos bem alinhados */
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* 🔹 Estilizando o bloco de tempo e porções */
+.recipe-meta {
+    display: flex;
+    gap: 15px;
+}
+
+/* 🔹 Botão de Favoritar dentro do bloco de info */
+.btn-favorite {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: red;
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn-favorite:hover {
+    transform: scale(1.1);
+}

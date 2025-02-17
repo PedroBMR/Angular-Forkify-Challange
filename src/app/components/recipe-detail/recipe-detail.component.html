@@ -1,0 +1,38 @@
+<div class="recipe-detail">
+  
+  <!-- 📌 Título da Receita -->
+  <h2>{{ recipe?.title }}</h2>
+
+  <!-- 📌 Imagem da Receita -->
+  <img [src]="recipe?.image_url" alt="{{ recipe?.title }}" class="recipe-img">
+
+  <!-- 📌 Informações Principais -->
+  <div class="recipe-info">
+    
+    <div class="recipe-meta">
+      <p><strong>Porções:</strong> {{ recipe?.servings }}</p>
+      <p><strong>Tempo de Preparo:</strong> {{ recipe?.cooking_time }} minutos</p>
+    </div>
+
+    <!-- 📌 Botão de Favoritar movido para cá -->
+    <button class="btn-favorite" (click)="toggleFavorite()">
+
+      ❤️
+    </button>
+
+  </div>
+
+  <!-- 📌 Ingredientes -->
+  <h3>Ingredientes:</h3>
+  <ul>
+    <li *ngFor="let ingredient of recipe?.ingredients">
+      {{ ingredient.quantity }} {{ ingredient.unit }} - <strong>{{ ingredient.description }}</strong>
+    </li>
+  </ul>
+
+  <!-- 📌 Botão para adicionar todos os ingredientes ao carrinho -->
+  <button class="btn-add-all" (click)="addAllToShoppingList()">
+    🛒 Adicionar Todos os Ingredientes
+  </button>
+
+</div>

@@ -1,0 +1,28 @@
+<!-- 🌟 NAVBAR BÁSICA -->
+<div class="navbar">
+  <h1>Forkify</h1>
+  <div>
+    <input [(ngModel)]="searchQuery" type="text" placeholder="Search recipes...">
+    <button (click)="searchRecipes()">🔍 Search</button>
+  </div>
+  <button (click)="toggleFavorites()">❤️</button>
+</div>
+
+<!-- 🌟 CONTEÚDO PRINCIPAL -->
+<div class="container">
+  <div>
+    <app-recipe-list (selectRecipe)="viewRecipe($event)"></app-recipe-list>
+  </div>
+
+  <div *ngIf="selectedRecipeId">
+    <app-recipe-detail [recipeId]="selectedRecipeId"></app-recipe-detail>
+  </div>
+
+  <div *ngIf="showFavorites">
+    <app-favorites (selectRecipe)="viewRecipe($event)"></app-favorites>
+  </div>
+
+  <div>
+    <app-shopping-list></app-shopping-list>
+  </div>
+</div>

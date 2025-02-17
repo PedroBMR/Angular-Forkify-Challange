@@ -1,0 +1,14 @@
+<div class="shopping-list">
+  <h4>Lista de Compras 🛒</h4>
+<button class="btn btn-info" (click)="copyShoppingList()">📋 Copiar Lista</button>
+
+<ul *ngIf="shoppingList.length > 0" class="list-group">
+  <li *ngFor="let item of shoppingList" class="list-group-item d-flex justify-content-between align-items-center">
+    <span>{{ item.quantity }} {{ item.unit || '' }} - <strong>{{ item.description }}</strong></span>
+    <button class="btn btn-danger btn-sm" (click)="removeItem(item.description)">❌</button>
+  </li>
+</ul>
+
+
+  <button class="btn btn-warning mt-2" (click)="clearList()">🗑 Limpar Lista</button>
+</div>

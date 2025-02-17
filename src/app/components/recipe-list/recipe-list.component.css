@@ -1,0 +1,48 @@
+.recipe-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer; /* 🛑 Agora cada item é clicável */
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.recipe-item:hover {
+  background: #f7f7f7;
+  transform: scale(1.02);
+}
+
+.recipe-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.recipe-info {
+  flex-grow: 1;
+}
+
+.recipe-title {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.recipe-source {
+  margin: 0;
+  font-size: 12px;
+  color: #777;
+}
+
+/* 🔹 Botão de Favoritar */
+.favorite-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+}

@@ -19,8 +19,8 @@ Forkify é um aplicativo web para buscar, salvar e visualizar receitas de forma 
 Primeiro, clone o repositório para sua máquina local:
 
 ```bash
-git clone https://github.com/seu-usuario/forkify.git
-cd forkify
+git clone https://github.com/PedroBMR/Angular-Forkify-Challange.git
+cd Angular-Forkify-Challange
 ```
 
 ### 2. Instalar Dependências

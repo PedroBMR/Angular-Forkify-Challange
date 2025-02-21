@@ -1,14 +1,15 @@
-<div class="shopping-list">
-  <h4>Lista de Compras 🛒</h4>
-<button class="btn btn-info" (click)="copyShoppingList()">📋 Copiar Lista</button>
+<div class="shopping-list-container">
+  <h4 class="shopping-list-title">🛒 Lista de Compras</h4>
 
-<ul *ngIf="shoppingList.length > 0" class="list-group">
-  <li *ngFor="let item of shoppingList" class="list-group-item d-flex justify-content-between align-items-center">
-    <span>{{ item.quantity }} {{ item.unit || '' }} - <strong>{{ item.description }}</strong></span>
-    <button class="btn btn-danger btn-sm" (click)="removeItem(item.description)">❌</button>
-  </li>
-</ul>
+  <button class="btn-copy" (click)="copyShoppingList()">📋 Copiar Lista</button>
 
+  <ul *ngIf="shoppingList.length > 0" class="shopping-items">
+    <li *ngFor="let item of shoppingList" class="shopping-item">
+      <span class="shopping-quantity">{{ item.quantity }} {{ item.unit || '' }}</span> 
+      <strong class="shopping-description">{{ item.description }}</strong>
+      <button class="btn-remove-item" (click)="removeItem(item.description)">❌</button>
+    </li>
+  </ul>
 
-  <button class="btn btn-warning mt-2" (click)="clearList()">🗑 Limpar Lista</button>
+  <button class="btn-clear-list" (click)="clearList()">🗑 Limpar Lista</button>
 </div>

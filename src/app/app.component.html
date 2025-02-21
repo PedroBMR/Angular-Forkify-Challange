@@ -1,28 +1,56 @@
-<!-- 🌟 NAVBAR BÁSICA -->
-<div class="navbar">
-  <h1>Forkify</h1>
-  <div>
-    <input [(ngModel)]="searchQuery" type="text" placeholder="Search recipes...">
-    <button (click)="searchRecipes()">🔍 Search</button>
-  </div>
-  <button (click)="toggleFavorites()">❤️</button>
-</div>
+<header class="header">
+  <div class="header-container">
+    
+    <a href="#" class="logo">
+      <i class="bi bi-egg-fried"></i> <span>Forkify</span>
+    </a>
 
-<!-- 🌟 CONTEÚDO PRINCIPAL -->
-<div class="container">
-  <div>
-    <app-recipe-list (selectRecipe)="viewRecipe($event)"></app-recipe-list>
-  </div>
+    <div class="search-box">
+      <input [(ngModel)]="searchQuery" type="text" 
+             class="search-input" placeholder="Search over 1,000,000 recipes...">
+      <button class="search-btn" (click)="searchRecipes()">
+        🔍 Search
+      </button>
+    </div>
 
-  <div *ngIf="selectedRecipeId">
+    <button class="favorites-btn" (click)="toggleFavorites()">
+      ❤️
+    </button>
+
+  </div>
+</header>
+
+<div class="main-container">
+  
+<aside class="recipe-list">
+  <h3 class="recipe-list-title">📜 Receitas</h3>
+  <div class="recipe-list-container">
+    <ul class="recipe-items">
+      <li *ngFor="let recipe of recipes" (click)="viewRecipe(recipe.id)" class="recipe-item">
+        <img [src]="recipe.image_url || 'assets/no-image.png'" alt="{{ recipe.title }}" class="recipe-img">
+        <div class="recipe-info">
+          <h4 class="recipe-title">{{ recipe.title }}</h4>
+          <p class="recipe-source">{{ recipe.source_name }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</aside>
+
+<section class="recipe-detail">
+  <div *ngIf="selectedRecipeId; else noRecipeSelected" class="recipe-content">
     <app-recipe-detail [recipeId]="selectedRecipeId"></app-recipe-detail>
   </div>
+  <ng-template #noRecipeSelected>
+    <div class="placeholder-card">
+      <h2>Nenhuma Receita Selecionada</h2>
+      <p>Escolha uma receita na lista ao lado para ver os detalhes.</p>
+    </div>
+  </ng-template>
+</section>
 
-  <div *ngIf="showFavorites">
-    <app-favorites (selectRecipe)="viewRecipe($event)"></app-favorites>
-  </div>
+<aside class="shopping-list">
+  <app-shopping-list></app-shopping-list>
+</aside>
 
-  <div>
-    <app-shopping-list></app-shopping-list>
-  </div>
 </div>

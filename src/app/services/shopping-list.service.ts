@@ -12,7 +12,7 @@ export class ShoppingListService {
   shoppingList$ = this.shoppingListSubject.asObservable();
 
   constructor() {
-    this.loadShoppingList(); // 🔥 Carregar lista salva ao iniciar
+    this.loadShoppingList(); 
   }
 
   private loadShoppingList() {
@@ -32,20 +32,17 @@ export class ShoppingListService {
     );
   
     if (existingIngredient) {
-      // 🔥 Se já existir, soma as quantidades
       existingIngredient.quantity = (parseFloat(existingIngredient.quantity || '1') + parseFloat(newIngredient.quantity || '1')).toString();
     } else {
-      // 🔥 Adicionando o nome corretamente
       this.shoppingList.push({
-        description: newIngredient.description, // Garante que o nome está sendo armazenado
+        description: newIngredient.description, 
         quantity: newIngredient.quantity,
         unit: newIngredient.unit
       });
     }
   
-    this.saveShoppingList(); // Salvar a lista no localStorage
+    this.saveShoppingList(); 
   }
-  
 
   removeIngredient(description: string) {
     this.shoppingList = this.shoppingList.filter(item => item.description !== description);

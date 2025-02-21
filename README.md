@@ -1,59 +1,49 @@
-# AngularChallange
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+# Forkify - Recipe Finder
 
-## Development server
+**Descrição:**  
+Forkify é um aplicativo web para buscar, salvar e visualizar receitas de forma simples e intuitiva. Utilize a plataforma para explorar uma variedade de receitas e gerenciar suas favoritas!
 
-To start a local development server, run:
+## Tecnologias e Ferramentas Usadas
+- **Linguagens:** TypeScript, HTML, CSS
+- **Frameworks:** Angular
+- **Outras Tecnologias:** 
+  - RxJS
+  - Bootstrap 5
+  - Angular CLI
+  - API do Forkify para dados de receitas
+
+## Como Instalar e Usar o Projeto
+
+### 1. Clonar o Repositório
+Primeiro, clone o repositório para sua máquina local:
+
+```bash
+git clone https://github.com/seu-usuario/forkify.git
+cd forkify
+```
+
+### 2. Instalar Dependências
+Instale as dependências necessárias usando o npm:
+
+```bash
+npm install
+```
+
+### 3. Rodar o Projeto
+Execute o seguinte comando para iniciar o servidor de desenvolvimento:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Agora você pode acessar a aplicação no seu navegador acessando [http://localhost:4200](http://localhost:4200).
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 4. Construir o Projeto para Produção
+Caso deseje construir o projeto para produção, utilize o comando:
 
 ```bash
-ng generate --help
+ng build --prod
 ```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Isso gerará os arquivos otimizados na pasta `dist/`.

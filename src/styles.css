@@ -1,93 +1,30 @@
-/* 🌟 GERAL */
+.main-container {
+  display: flex;
+  min-height: 100vh;
+  overflow: visible;
+}
+
+.recipe-list, .recipe-detail, .shopping-list {
+  flex-grow: 1;
+  min-height: 100vh;
+  overflow: visible;
+  padding-bottom: 20px;
+}
+
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #fff1eb, #ace0f9);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* 🌟 NAVBAR */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    padding: 15px 20px;
-    width: 100%;
-    max-width: 1200px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin-top: 10px;
-  }
-  
-  /* 🌟 CONTAINER PRINCIPAL */
-  .container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    width: 100%;
-    max-width: 1200px;
-    gap: 20px;
-  }
-  
-  /* 🌟 SEÇÃO DE RECEITAS */
-  .recipe-container {
-    flex: 2;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  /* 🌟 SEÇÃO SHOPPING LIST */
-  .shopping-list-container {
-    flex: 1;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 350px;
-  }
-  
-  /* 🌟 BOTÕES */
-  .btn {
-    padding: 10px 14px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-  
-  .btn-primary {
-    background: #ff7f50;
-    color: white;
-  }
-  
-  .btn-primary:hover {
-    background: #e46b40;
-  }
-  
-  .btn-secondary {
-    background: #00bcd4;
-    color: white;
-  }
-  
-  .btn-secondary:hover {
-    background: #0097a7;
-  }
-  
-  .btn-danger {
-    background: #ff3d3d;
-    color: white;
-  }
-  
-  .btn-danger:hover {
-    background: #d32f2f;
-  }
-  
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.recipe-list-container,
+.shopping-list-container,
+.recipe-detail-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.recipe-list-container::-webkit-scrollbar,
+.shopping-list-container::-webkit-scrollbar,
+.recipe-detail-container::-webkit-scrollbar {
+  display: none;
+}

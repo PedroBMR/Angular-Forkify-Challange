@@ -15,12 +15,12 @@ import { Ingredient } from '../../models/ingredient.model';
 export class RecipeDetailComponent implements OnChanges {
   @Input() recipeId!: string;
   recipe: any = null;
-  isFavorite: boolean = false; // 🔥 Estado para verificar se a receita é favorita
+  isFavorite: boolean = false; 
 
   constructor(
     private recipeService: RecipeService, 
     private shoppingListService: ShoppingListService,
-    private favoriteService: FavoriteService // 🔥 Adicionando o serviço de favoritos
+    private favoriteService: FavoriteService 
   ) {}
 
   ngOnChanges() {
@@ -30,18 +30,19 @@ export class RecipeDetailComponent implements OnChanges {
   }
 
   loadRecipe() {
-    this.recipeService.getRecipe(this.recipeId).subscribe(response => {
-      this.recipe = response.data.recipe;
-      this.checkIfFavorite();
+    this.recipeService.getRecipe(this.recipeId).subscribe({
+      next: (response) => {
+        this.recipe = response.data.recipe;
+        this.checkIfFavorite();
+      },
+      error: (err) => console.error("Erro ao carregar receita:", err)
     });
   }
 
-  /** 🔥 Verifica se a receita já está favoritada */
   checkIfFavorite() {
     this.isFavorite = this.favoriteService.isFavorite(this.recipeId);
   }
 
-  /** 🔥 Adiciona ou remove a receita dos favoritos */
   toggleFavorite() {
     if (this.isFavorite) {
       this.favoriteService.removeFavorite(this.recipeId);
@@ -52,10 +53,9 @@ export class RecipeDetailComponent implements OnChanges {
         image_url: this.recipe.image_url
       });
     }
-    this.isFavorite = !this.isFavorite; // 🔥 Atualiza o estado do botão
+    this.isFavorite = !this.isFavorite; 
   }
 
-  /** 🔥 Adiciona todos os ingredientes ao carrinho de compras */
   addAllToShoppingList() {
     if (this.recipe && this.recipe.ingredients) {
       this.recipe.ingredients.forEach((ingredient: Ingredient) => {

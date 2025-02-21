@@ -1,7 +1,6 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { RecipeListComponent } from './components/recipe-list/recipe-list.component';
+import { Component } from '@angular/core';
+import { RecipeService } from './services/recipe.service';
 import { RecipeDetailComponent } from './components/recipe-detail/recipe-detail.component';
-import { FavoritesComponent } from './components/favorites/favorites.component';
 import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -9,25 +8,30 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RecipeListComponent, RecipeDetailComponent, FavoritesComponent, ShoppingListComponent, FormsModule, CommonModule],
+  imports: [RecipeDetailComponent, ShoppingListComponent, FormsModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   searchQuery = '';
   selectedRecipeId: string = '';
   showFavorites: boolean = false;
+  recipes: any[] = [];
 
-  @ViewChild(RecipeListComponent) recipeList!: RecipeListComponent;
-
-  ngAfterViewInit() {
-    console.log("RecipeListComponent carregado:", this.recipeList);
-  }
+  constructor(private recipeService: RecipeService) {}
 
   searchRecipes() {
-    if (this.recipeList) {
-      this.recipeList.search(this.searchQuery);
+    if (this.searchQuery.trim() === '') {
+      this.recipes = [];
+      return;
     }
+
+    this.recipeService.searchRecipes(this.searchQuery).subscribe({
+      next: (response) => {
+        this.recipes = response.data.recipes;
+      },
+      error: () => {}
+    });
   }
 
   viewRecipe(recipeId: string) {

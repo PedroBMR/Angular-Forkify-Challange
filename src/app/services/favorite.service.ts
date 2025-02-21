@@ -11,7 +11,7 @@ export class FavoriteService {
   favorites$ = this.favoritesSubject.asObservable();
 
   constructor() {
-    this.loadFavorites(); // 🔥 Carregar favoritos ao iniciar
+    this.loadFavorites(); 
   }
 
   private loadFavorites() {
@@ -28,7 +28,7 @@ export class FavoriteService {
   addFavorite(recipe: any) {
     if (!this.isFavorite(recipe.id)) {
       this.favorites.push(recipe);
-      this.saveFavorites(); // 🔥 Atualiza o LocalStorage
+      this.saveFavorites(); 
     }
   }
 

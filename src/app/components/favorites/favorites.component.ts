@@ -21,7 +21,6 @@ export class FavoritesComponent implements OnInit {
   }
 
   viewFavoriteRecipe(recipeId: string) {
-    console.log("🔍 Exibindo detalhes da receita favorita:", recipeId);
     this.selectRecipe.emit(recipeId); 
   }
 

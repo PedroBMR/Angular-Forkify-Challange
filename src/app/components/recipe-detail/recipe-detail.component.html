@@ -1,38 +1,33 @@
-<div class="recipe-detail">
-  
-  <!-- 📌 Título da Receita -->
-  <h2>{{ recipe?.title }}</h2>
-
-  <!-- 📌 Imagem da Receita -->
-  <img [src]="recipe?.image_url" alt="{{ recipe?.title }}" class="recipe-img">
-
-  <!-- 📌 Informações Principais -->
-  <div class="recipe-info">
-    
-    <div class="recipe-meta">
-      <p><strong>Porções:</strong> {{ recipe?.servings }}</p>
-      <p><strong>Tempo de Preparo:</strong> {{ recipe?.cooking_time }} minutos</p>
+<div class="recipe-container">
+  <div class="recipe-image-container">
+    <img [src]="recipe?.image_url" alt="{{ recipe?.title }}" class="recipe-img">
+    <div class="recipe-title-overlay">
+      <h2 class="recipe-title">{{ recipe?.title }}</h2>
     </div>
-
-    <!-- 📌 Botão de Favoritar movido para cá -->
-    <button class="btn-favorite" (click)="toggleFavorite()">
-
-      ❤️
-    </button>
-
   </div>
 
-  <!-- 📌 Ingredientes -->
-  <h3>Ingredientes:</h3>
-  <ul>
-    <li *ngFor="let ingredient of recipe?.ingredients">
-      {{ ingredient.quantity }} {{ ingredient.unit }} - <strong>{{ ingredient.description }}</strong>
-    </li>
-  </ul>
+  <div class="recipe-meta">
+    <p><i class="bi bi-clock"></i> {{ recipe?.cooking_time }} minutos</p>
+    <p><i class="bi bi-people"></i> {{ recipe?.servings }} porções</p>
+    <button class="btn-favorite" (click)="toggleFavorite()">
+      ❤️
+    </button>
+  </div>
 
-  <!-- 📌 Botão para adicionar todos os ingredientes ao carrinho -->
-  <button class="btn-add-all" (click)="addAllToShoppingList()">
-    🛒 Adicionar Todos os Ingredientes
+  <div class="recipe-ingredients">
+    <ul class="ingredients-column">
+      <li *ngFor="let ingredient of recipe?.ingredients.slice(0, recipe?.ingredients.length / 2)">
+        <i class="bi bi-check-circle"></i> {{ ingredient.quantity }} {{ ingredient.unit }} {{ ingredient.description }}
+      </li>
+    </ul>
+    <ul class="ingredients-column">
+      <li *ngFor="let ingredient of recipe?.ingredients.slice(recipe?.ingredients.length / 2)">
+        <i class="bi bi-check-circle"></i> {{ ingredient.quantity }} {{ ingredient.unit }} {{ ingredient.description }}
+      </li>
+    </ul>
+  </div>
+
+  <button class="btn-add-to-cart" (click)="addAllToShoppingList()">
+    🛒 Add to Shopping List
   </button>
-
 </div>

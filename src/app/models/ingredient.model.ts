@@ -1,5 +1,5 @@
 export interface Ingredient {
-  description: string; // 🔥 Aqui armazenamos o nome real do ingrediente
+  description: string; 
   quantity?: string;
   unit?: string;
 }

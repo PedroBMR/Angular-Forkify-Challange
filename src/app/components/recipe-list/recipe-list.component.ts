@@ -3,6 +3,7 @@ import { RecipeService } from '../../services/recipe.service';
 import { FavoriteService } from '../../services/favorite.service';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { Recipe } from '../../models/recipe.model';
 
 @Component({
   selector: 'app-recipe-list',
@@ -31,8 +32,11 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   }
 
   search(query: string) {
-    this.recipeService.searchRecipes(query).subscribe(response => {
-      this.recipes = response.data.recipes;
+    this.recipeService.searchRecipes(query).subscribe({
+      next: (response) => {
+        this.recipes = response.data.recipes;
+      },
+      error: () => {}
     });
   }
 

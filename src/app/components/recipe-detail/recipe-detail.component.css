@@ -1,27 +1,102 @@
-/* 🔹 Estilizando o container de informações da receita */
-.recipe-info {
+.recipe-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+}
+
+.recipe-image-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.recipe-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recipe-title-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(255, 87, 34, 0.9);
+    padding: 5px 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.recipe-meta {
     display: flex;
-    justify-content: space-between; /* 🔥 Mantém os elementos bem alinhados */
+    justify-content: space-between;
     align-items: center;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
     margin-top: 10px;
 }
 
-/* 🔹 Estilizando o bloco de tempo e porções */
-.recipe-meta {
-    display: flex;
-    gap: 15px;
+.recipe-meta p {
+    margin: 0;
+    font-weight: bold;
 }
 
-/* 🔹 Botão de Favoritar dentro do bloco de info */
 .btn-favorite {
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
     color: red;
-    transition: transform 0.2s ease-in-out;
 }
 
-.btn-favorite:hover {
-    transform: scale(1.1);
+.recipe-ingredients {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.ingredients-column {
+    list-style: none;
+    padding: 0;
+    width: 48%;
+}
+
+.ingredients-column li {
+    background: #f8f9fa;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.ingredients-column i {
+    margin-right: 5px;
+    color: #28a745;
+}
+
+.btn-add-to-cart {
+    width: 100%;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.btn-add-to-cart:hover {
+    background: #218838;
 }

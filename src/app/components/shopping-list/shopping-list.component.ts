@@ -25,15 +25,13 @@ export class ShoppingListComponent implements OnInit {
   }
 
   clearList() {
-    this.shoppingListService.clearList(); // 🔥 Certifique-se de que o nome do método é 'clearList'
+    this.shoppingListService.clearList();
   }
-  
+
   copyShoppingList() {
     const text = this.shoppingList.map(item => `${item.quantity} ${item.unit || ''} - ${item.description}`).join('\n');
     navigator.clipboard.writeText(text).then(() => {
-      alert('Lista copiada para a área de transferência!');
+      alert('✅ Lista copiada para a área de transferência!');
     });
   }
-  
-  
 }
